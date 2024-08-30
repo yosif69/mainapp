@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React from 'react';
 import CarItem from './src/components/CarItem';
+import SectionList from './src/components/SectionList';
 import {Cars} from './src/res/Data';
 import MainNavigation from './route/nav';
 
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1, // cover the all the screen
   },
   txt: {
-    fontSize: 50,
+    fontSize: 40,
     fontWeight: 'bold',
     borderWidth: 3,
     // padding: 15 ,

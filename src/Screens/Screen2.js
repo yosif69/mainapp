@@ -8,7 +8,8 @@ const Screen2 = (props) => {
 
   console.log("car: ", car);
 
-  return (    
+  return (
+        
     <View style={styles.container}>
         <CarItem {...car}/>
 
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+    backgroundColor:'#454545'
   },
 
  

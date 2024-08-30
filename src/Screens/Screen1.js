@@ -1,23 +1,25 @@
 import {StyleSheet, Text, View, ScrollView, Button} from 'react-native';
 import React from 'react';
-import {Cars} from '../res/Data';
-import CarItem from '../components/CarItem';
-import {onCardPress} from '../components/CarItem';
+import { DataD} from '../res/Data';
 import ScreenNames from '../../route/ScreenNames';
+import BtnTouch from '../components/BtnTouch';
+import { renderClothis }  from '../components/BtnTouch';
 
 const Screen1 = (props) => {
-  const renderCars = () => {
-    const carsComponents = Cars.map((car,index) => {
-      return <CarItem key={index} brand={car.brand} year={car.year} km={car.km} img={car.img} />;
+  
+  
+  const renderHoodie = () => {
+    const DataComponents = DataD.map((tods,index) => {
+      return <BtnTouch  brand={tods.brand} year={tods.year} km={tods.km} img={tods.img} id={tods.id}  />;
     });
 
-    return carsComponents;
+    return DataComponents;
   };
 
   
 
   const onPayPress2 = () => {
-    props.navigation.navigate(ScreenNames.screen3,{car: renderCars})
+    props.navigation.navigate(ScreenNames.Screen3,{list: renderClothis})
   };
 
   
@@ -25,9 +27,9 @@ const Screen1 = (props) => {
 
   return (
     <View style={{flex: 1}}>
-      <ScrollView>{renderCars()}</ScrollView>
+      <ScrollView>{renderHoodie()}</ScrollView>
       {/* <Button title="GO Screen2" onPress={onCardPress} /> */}
-      <Button title="GO Screen3" onPress={onPayPress2} />
+      {/* <Button title="GO Screen3" onPress={onPayPress2} /> */}
     </View>
   );
 };
