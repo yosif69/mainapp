@@ -27,7 +27,7 @@ const AllProduct = (props) => {
   const getAllproducts = () => {
     setLoading(true);
     const getData = {
-      hoodies: () => getAllHoodie(),
+      Hoodies: () => getAllHoodie(),
       shoes: () => getAllShoes(),
       pants: () => getAllPants(),
     };
@@ -55,7 +55,7 @@ const AllProduct = (props) => {
     <View style={styles.container}>
       <ScrollView>
         {renderProducts()}
-        {renderToDos()}
+        {/* {renderToDos()} */}
       </ScrollView>
     </View>
   );
@@ -66,7 +66,7 @@ export default AllProduct;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5', // Light grey background for better readability
+    backgroundColor: 'black', // Light grey background for better readability
     padding: 10,
   },
   loadingContainer: {

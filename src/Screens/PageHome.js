@@ -8,7 +8,7 @@ import { DataD } from '../res/Data';
 
 function PageHome() {
   return (
-    <ImageBackground source={Images.lxBackground()} resizeMode="cover" style={styles.container}>
+    <ImageBackground source={Images.rkBackground2()} resizeMode="stretch" style={styles.container}>
       <View style={styles.headerContainer}>
         <SearchComponents style={styles.searchBar} />
         <Text style={styles.title}>
@@ -35,7 +35,7 @@ export default PageHome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1c1c1c", 
+    // backgroundColor: "#1c1c1c", 
     padding: 10, 
   },
   headerContainer: {

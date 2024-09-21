@@ -6,7 +6,6 @@ const Images = {
     hody1: () => require ('./hody1.png'),
     hody2: () => require ('./hody2.png'),
     hody3: () => require ('./hody3.png'),
-    lxBackground: () => require ('./lxBackground.jpg'),
     shooes1: () => require ('./shooes1.jpg'),
     shooes2: () => require ('./shooes2.jpg'),
     shooes3: () => require ('./shooes3.jpg'),
@@ -17,6 +16,10 @@ const Images = {
     pants5: () => require ('./pants5.webp'),
     pants6: () => require ('./pants6.webp'),
     rkStyles: () => require ('./rkStyles.png'),
+    // BackgrRK: () => require ('.BackgrRK.png'),
+    // lxBackground: () => require ('./lxBackground.jpg'),
+    rkBackground2: () => require ('./rkBackground2.jpg'),
+
 
 
 

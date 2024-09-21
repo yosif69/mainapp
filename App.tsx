@@ -4,6 +4,7 @@ import CarItem from './src/components/CarItem';
 import SectionList from './src/components/SectionList';
 import {Cars} from './src/res/Data';
 import MainNavigation from './route/nav';
+import { registerRootComponent } from 'expo';
 
 const App = () => {
 
@@ -36,3 +37,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+registerRootComponent(App);
