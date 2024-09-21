@@ -28,7 +28,6 @@ export const getAllShoes = async () => {
     const url = '/getAllShoes';
     return await fetchApi(url);
 };
-
 export const getAllPants = async () => {
     const url = '/getAllPants';
     return await fetchApi(url);

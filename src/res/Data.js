@@ -47,8 +47,7 @@ export const DataD = [
         style: {
             height: 130,
             width: 210,
-            borderRadius: 75,
-            borderWidth: 3,
+            // borderRadius: 75,
             // borderColor: 'blue',
 
 

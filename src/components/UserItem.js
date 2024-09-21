@@ -27,7 +27,7 @@ export default UserItem;
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 10,
+    borderWidth: 40,
     borderRadius: 50, 
     borderColor: Colors.lightGray,
     backgroundColor: Colors.white,

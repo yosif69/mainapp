@@ -9,15 +9,16 @@ import { DataD } from '../res/Data';
 function PageHome() {
   return (
     <ImageBackground source={Images.rkBackground2()} resizeMode="stretch" style={styles.container}>
+            <View style={{padding:70}}>           
+               <SearchComponents/>
+            </View>
       <View style={styles.headerContainer}>
-        <SearchComponents style={styles.searchBar} />
         <Text style={styles.title}>
           Hoodie
           <Text style={styles.blueStyle}>Style</Text>
           <Text style={styles.redStyle}> Rk</Text>
         </Text>
       </View>
-
       <FlatList
         data={DataD}
         keyExtractor={(item) => item.name}
@@ -48,7 +49,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    marginRight:89, 
+    // marginRight:89, 
+    marginLeft:60,
     fontWeight: "bold",
     color: "#ffffff", 
   },
