@@ -5,14 +5,18 @@ import SectionList from '../components/SectionList';
 import SearchComponents from '../components/SearchComponents';
 import Images from '../assets/images/images';
 import { DataD } from '../res/Data';
+import { FontAwesome5 } from '@expo/vector-icons';
+import CartButton from '../components/CartButton';
 
 function PageHome() {
   return (
     <ImageBackground source={Images.rkBackground2()} resizeMode="stretch" style={styles.container}>
-            <View style={{padding:70}}>           
-               <SearchComponents/>
-            </View>
+      <View style={{ padding: 70 }}>
+        <SearchComponents />
+      </View>
+
       <View style={styles.headerContainer}>
+        <CartButton/>
         <Text style={styles.title}>
           Hoodie
           <Text style={styles.blueStyle}>Style</Text>
@@ -37,36 +41,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: "#1c1c1c", 
-    padding: 10, 
+    padding: 10,
   },
   headerContainer: {
-    backgroundColor:"#1c1c1c",
+    backgroundColor: "#1c1c1c",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginVertical: 10, 
+    marginVertical: 10,
     paddingHorizontal: 10,
   },
   title: {
     fontSize: 30,
-    // marginRight:89, 
-    marginLeft:60,
+    marginRight:89, 
+    marginLeft: 40,
     fontWeight: "bold",
-    color: "#ffffff", 
+    color: "#ffffff",
   },
   blueStyle: {
     color: Colors.lightBlue,
     fontWeight: "800",
   },
   redStyle: {
-    fontSize: 20, 
-    color: "#E70000", 
+    fontSize: 20,
+    color: "#E70000",
   },
   Scroll: {
     flex: 1,
     marginTop: 10,
   },
   contentContainer: {
-    paddingBottom: 20, 
+    paddingBottom: 20,
   },
 });

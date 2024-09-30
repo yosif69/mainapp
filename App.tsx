@@ -1,10 +1,11 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 import CarItem from './src/components/CarItem';
 import SectionList from './src/components/SectionList';
-import {Cars} from './src/res/Data';
+import { Cars } from './src/res/Data';
 import MainNavigation from './route/nav';
 import { registerRootComponent } from 'expo';
+import TestProvider from './store/testProvider';
 
 const App = () => {
 
@@ -15,9 +16,11 @@ const App = () => {
   // );
 
   return (
-    <View style={styles.container} >
-      <MainNavigation/>
-    </View>
+    <TestProvider>
+      <View style={styles.container} >
+        <MainNavigation />
+      </View>
+    </TestProvider>
   );
 };
 

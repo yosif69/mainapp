@@ -1,25 +1,38 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import Colors from '../res/Colors';
+import ScreenNames from '../../route/ScreenNames';
+import { useNavigation } from '@react-navigation/native';
 
 const UserItem = (props) => {
-  const { name, phone, points, userName, price, Size, pass, age, img } = props;
+  const navigation=useNavigation()
+  const { name,price, Size, img } = props;
   // console.log(props);
   
+  const goTo=()=>{
+    navigation.navigate(ScreenNames.ProductScreen,{
+      name,
+      price,
+      Size,
+      img
+    })
+  }
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={goTo} style={styles.container}>
     <Image 
       style={styles.image} 
       source={{ uri: img }} 
       resizeMode="cover"
-    />
+      />
 
     <View style={styles.textContainer}>
       <Text style={styles.name}>{name}</Text>
-      <Text style={styles.size}>{`Size: ${Size}`}</Text>
       <Text style={styles.price}>{`Price: $${price}`}</Text>
+      <Text style={styles.size}>{`Size: ${Size}`}</Text>
+      
     </View>
-  </View>
+  </TouchableOpacity>
   );
 };
 
@@ -27,19 +40,19 @@ export default UserItem;
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 40,
-    borderRadius: 50, 
-    borderColor: Colors.lightGray,
+    borderWidth: 50,
+    // borderColor: Colors.lightGray,
     backgroundColor: Colors.white,
   },
   image: {
     width: '100%',
-    height: 220,
-    borderBottomLeftRadius: 18,
-    borderBottomRightRadius: 18,
+    height: 223,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   textContainer: {
-    padding: 15,
+    padding: 20,
+    borderRadius: 10,
     alignItems: 'flex-start',
   },
   name: {
@@ -49,14 +62,15 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   size: {
-    fontSize: 16,
+    fontSize: 18,
     color: Colors.gray,
-    marginBottom: 4,
+    marginBottom: 7,
+    
   },
   price: {
     fontSize: 18,
     fontWeight: 'bold',
     color: Colors.primary,
   },
-
+  
 });

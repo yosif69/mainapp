@@ -3,17 +3,15 @@ import React, { useState } from 'react';
 import Images from '../assets/images/images';
 import ScreenNames from '../../route/ScreenNames';
 
-const LogIn = (props) => {
-  const onPayPress1 = () => {
+const CreateAccount = (props) => {
+  const onSignUpPress = () => {
+    // عملية التحقق أو إرسال البيانات
     props.navigation.navigate(ScreenNames.PageHome);
   };
 
-  const onRegisterPress = () => {
-    props.navigation.navigate(ScreenNames.CreateAccount); // توجيه المستخدم إلى صفحة التسجيل
-  };
-
-  const [text, onChangeText] = useState('');
-  const [number, onChangeNumber] = useState('');
+  const [username, onChangeUsername] = useState('');
+  const [email, onChangeEmail] = useState('');
+  const [password, onChangePassword] = useState('');
 
   return (
     <ImageBackground source={Images.skull()} resizeMode="cover" style={styles.image}>
@@ -22,33 +20,34 @@ const LogIn = (props) => {
           <View style={styles.imageBox}>
             <Image style={styles.tinyLogo} source={Images.rkStyles()} />
           </View>
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeEmail}
+                value={email}
+                placeholder='Email'
+                placeholderTextColor={'#aaa'}
+                keyboardType='email-address'
+              />
           <View style={styles.textBOX}>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
-              placeholder='Email, Username:'
+              onChangeText={onChangeUsername}
+              value={username}
+              placeholder='Username'
               placeholderTextColor={'#aaa'}
             />
             <TextInput
               style={styles.input}
-              onChangeText={onChangeNumber}
-              value={number}
-              placeholder="Password:"
-              keyboardType="default"
+              onChangeText={onChangePassword}
+              value={password}
+              placeholder="Password"
               placeholderTextColor={'#aaa'}
               secureTextEntry={true}
             />
           </View>
           <View style={styles.boxLogin}>
-            <TouchableOpacity onPress={onPayPress1} style={styles.Touch}>
-              <Text style={styles.TouchLogin}>Log In</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.registerBox}>
-            <Text style={styles.questionText}>Need an account? </Text>
-            <TouchableOpacity onPress={onRegisterPress}>
-              <Text style={styles.registerText}>Register</Text>
+            <TouchableOpacity onPress={onSignUpPress} style={styles.Touch}>
+              <Text style={styles.TouchLogin}>Continue</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
   },
   boxLogin: {
     alignItems: 'center',
-    marginBottom: 20,
   },
   Touch: {
     backgroundColor: '#E70000',
@@ -117,20 +115,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-  registerBox: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 15,
-  },
-  questionText: {
-    fontSize: 14,
-    color: '#aaa',
-  },
-  registerText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#E70000',
-  },
 });
 
-export default LogIn;
+export default CreateAccount;

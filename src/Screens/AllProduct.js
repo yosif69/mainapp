@@ -45,7 +45,7 @@ const AllProduct = (props) => {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="small" color="red" />
         <Text style={styles.loadingText}>Loading Products...</Text>
       </View>
     );
@@ -66,40 +66,20 @@ export default AllProduct;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black', // Light grey background for better readability
-    padding: 10,
+    backgroundColor: '', // Light grey background for better readability
+    // padding: 10/,
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#333',
   },
   loadingText: {
-    marginTop: 10,
-    fontSize: 18,
-    color: '#333',
+    marginTop: 20,
+    fontSize: 20,
+    color: '#0ff',
   },
-  itemContainer: {
-    backgroundColor: '#fff', // White background for item containers
-    borderRadius: 10,
-    padding: 15,
-    marginVertical: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
-  },
-  title1: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-  },
-  img: {
-    width: '100%',
-    height: 200,
-    borderRadius: 10,
-  },
+  
+  
 });

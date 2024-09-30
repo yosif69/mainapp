@@ -11,6 +11,9 @@ import PageHome from '../src/Screens/PageHome';
 import AllProduct from '../src/Screens/AllProduct';
 import CarItem from '../src/components/CarItem';
 import Screen4 from '../src/Screens/Screen4';
+import ProductScreen from '../src/Screens/ProductScreen';
+import Cart from '../src/Screens/Cart';
+import CreateAccount from '../src/Screens/CreateAccount';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,10 +25,15 @@ function MyStack(){
       headerTitle: '', 
     }}>
       <Stack.Screen style={{flex: 1}} name="LogIn" component={LogIn}/>
+      <Stack.Screen name="CreateAccount" component={CreateAccount} />
       {/* <Stack.Screen name="Screen4" component={Screen4} /> */}
       <Stack.Screen name="PageHome" component={PageHome} />
       {/* <Stack.Screen name="CarItem" component={CarItem} /> */}
       <Stack.Screen name="Product" component={AllProduct} />
+      <Stack.Screen name="ProductScreen" component={ProductScreen} />
+      <Stack.Screen name="Cart" component={Cart} />
+
+
       <Stack.Screen
           name={ScreenNames.Screen3}
           component={Screen3}

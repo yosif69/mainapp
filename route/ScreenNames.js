@@ -10,6 +10,9 @@ const ScreenNames = {
   AllProduct:'Product',
   CarItem: 'CarItem',
   Screen4: 'Screen4',
+  ProductScreen:"ProductScreen",
+  Cart:"Cart",
+  CreateAccount:"CreateAccount"
 };
 
 export default ScreenNames;
