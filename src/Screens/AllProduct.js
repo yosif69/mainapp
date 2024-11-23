@@ -5,6 +5,7 @@ import { getAllHoodie, getAllPants, getAllShoes, getAllproducts } from '../res/a
 import BtnTouch from '../components/BtnTouch';
 import SectionList from '../components/SectionList';
 import { DataD } from '../res/Data';
+import Colors from '../res/Colors';
 
 const AllProduct = (props) => {
   const { data, ListClothis } = props.route.params;
@@ -13,15 +14,6 @@ const AllProduct = (props) => {
 
   const renderProducts = () => {
     return products.map(product => <UserItem key={product.id} {...product} />);
-  };
-
-  const renderToDos = () => {
-    return data.map(todo => (
-      <View style={styles.itemContainer} key={todo.id}>
-        <Text style={styles.title1}>{todo.title}</Text>
-        <Image style={styles.img} source={todo.img} />
-      </View>
-    ));
   };
 
   const getAllproducts = () => {
@@ -33,6 +25,7 @@ const AllProduct = (props) => {
     };
 
     getData[ListClothis?.type]?.().then(res => {
+      console.log(res.data);
       setProducts(res.data || []);
       setLoading(false);
     });
@@ -53,7 +46,10 @@ const AllProduct = (props) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView
+       horizontal={true} 
+       contentContainerStyle={styles.scrollContainer}
+        showsHorizontalScrollIndicator={false}>
         {renderProducts()}
         {/* {renderToDos()} */}
       </ScrollView>
@@ -64,22 +60,39 @@ const AllProduct = (props) => {
 export default AllProduct;
 
 const styles = StyleSheet.create({
+
+  scrollContainer: {
+    flexDirection: 'row', 
+    marginVertical:3, 
+    marginHorizontal: 12, 
+    
+  },
   container: {
-    flex: 1,
-    backgroundColor: '', // Light grey background for better readability
-    // padding: 10/,
+    flex:1,
+    backgroundColor: Colors.Silver, 
+    padding: 10,
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#333',
+    backgroundColor: Colors.white2,
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 10,
   },
   loadingText: {
     marginTop: 20,
-    fontSize: 20,
-    color: '#0ff',
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#00D1FF',
+    letterSpacing: 1.3,
   },
+
+
   
   
 });

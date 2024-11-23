@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
 import React, { useContext } from 'react';
 import TestContext from '../../store/testContext';
+import Colors from '../res/Colors';
 
 const Cart = () => {
     const { cart, setCart } = useContext(TestContext);
@@ -22,6 +23,7 @@ const Cart = () => {
             <View style={styles.details}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.price}>${item.price}</Text>
+                <Text style={styles.Size}>{item.Size}</Text>
                 <TouchableOpacity onPress={() => removeFromCart(index)}>
                     <Text style={styles.remove}>Remove</Text>
                 </TouchableOpacity>
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     },
     emptyCart: {
         color: '#fff',
-        fontSize: 18,
+        fontSize: 20,
         textAlign: 'center',
         marginTop: 20,
     },
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
     },
     cartItem: {
         flexDirection: 'row',
-        backgroundColor: '#ccc',
+        backgroundColor: Colors.white2,
         padding: 10,
         borderRadius: 10,
         marginVertical: 5,
@@ -91,12 +93,16 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 16,
-        color: '#fff',
-        marginVertical: 5,
+        color: Colors.green,
+        marginVertical: 3,
+    },
+    Size: {
+        fontSize: 16,
+        color: Colors.black,
     },
     remove: {
-        color: 'red',
-        fontSize: 14,
+        color:"#ea0000",
+        fontSize: 15,
     },
     checkoutBtn: {
         backgroundColor: '#4CAF50',

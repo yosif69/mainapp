@@ -1,3 +1,4 @@
+import { color } from "@rneui/base";
 import Images from "../assets/images/images";
 // Temporay Data until we connect with Firebase
 

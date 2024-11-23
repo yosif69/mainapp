@@ -1,6 +1,3 @@
-import Screen3 from "../src/Screens/Screen3";
-import CarItem from "../src/components/CarItem";
-
 const ScreenNames = {
   LogIn:'login',
   PageHome:'PageHome',
@@ -12,7 +9,17 @@ const ScreenNames = {
   Screen4: 'Screen4',
   ProductScreen:"ProductScreen",
   Cart:"Cart",
-  CreateAccount:"CreateAccount"
+  SettingsButton:"SettingsButton",
+  CreateAccount:"CreateAccount",
+  Welcome:"Welcome",
+  Settingss:"Settingss",
+  Account:"Account",
+  Notifications:"Notifications",
+  Privacy:"Privacy",
+  About:"About",
+  EditProfile:"EditProfile",
+
+  
 };
 
 export default ScreenNames;

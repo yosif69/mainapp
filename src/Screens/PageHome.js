@@ -7,6 +7,7 @@ import Images from '../assets/images/images';
 import { DataD } from '../res/Data';
 import { FontAwesome5 } from '@expo/vector-icons';
 import CartButton from '../components/CartButton';
+import SettingsButton from '../components/SettingsButton';
 
 function PageHome() {
   return (
@@ -16,21 +17,22 @@ function PageHome() {
       </View>
 
       <View style={styles.headerContainer}>
-        <CartButton/>
+        <SettingsButton />
         <Text style={styles.title}>
           Hoodie
           <Text style={styles.blueStyle}>Style</Text>
           <Text style={styles.redStyle}> Rk</Text>
         </Text>
+        <CartButton />
       </View>
       <FlatList
         data={DataD}
-        keyExtractor={(item) => item.name}
+        // keyExtractor={(item) => item.name}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => <SectionList item={item} />}
         style={styles.Scroll}
         contentContainerStyle={styles.contentContainer}
-      />
+        />
     </ImageBackground>
   );
 }
@@ -40,30 +42,32 @@ export default PageHome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#1c1c1c", 
-    padding: 10,
+    // backgroundColor: "#111", 
+    padding: 15,
   },
   headerContainer: {
-    backgroundColor: "#1c1c1c",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: Colors.white2,
+    borderRadius: 12,
+    padding: 10,
     marginVertical: 10,
-    paddingHorizontal: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 10,
   },
   title: {
-    fontSize: 30,
-    marginRight:89, 
-    marginLeft: 40,
-    fontWeight: "bold",
-    color: "#ffffff",
+      fontSize: 28,
+      fontWeight: "700",
+      color: "#FFFFFF",
+      textAlign: "center",  
   },
   blueStyle: {
-    color: Colors.lightBlue,
-    fontWeight: "800",
+    color: Colors.lightGray,
   },
   redStyle: {
-    fontSize: 20,
     color: "#E70000",
   },
   Scroll: {
@@ -71,6 +75,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   contentContainer: {
-    paddingBottom: 20,
+    paddingBottom: 30,
   },
 });

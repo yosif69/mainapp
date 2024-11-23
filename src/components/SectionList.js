@@ -19,8 +19,8 @@ const SectionList = (props) => {
 
     const renderToDos = (props) => {
         return (
-            clothis.map(todo =>
-                <View style={styles.itemContainer}>
+            clothis.map((todo,key) =>
+                <View key={key} style={styles.itemContainer}>
                     <Text style={styles.title1}>{todo.title}</Text>
                     <Image style={[styles.img, style]} source={todo.img} />
                 </View>

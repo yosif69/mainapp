@@ -9,7 +9,7 @@ const fetchApi = async (url, method, body) => {
         },
         method: method || 'GET',
     };
-    
+
     if (body) {
         params.body = JSON.stringify(body);
     }
@@ -32,6 +32,18 @@ export const getAllPants = async () => {
     const url = '/getAllPants';
     return await fetchApi(url);
 };
+
+export const LogInApi = async (body) => {
+    const url = '/login';
+    return await fetchApi(url, "POST", body);
+};
+
+export const CreateUserApi = async (body) => {
+    const url = '/CreateUser';
+    return await fetchApi(url, "POST", body);
+};
+
+
 
 // Uncomment and use these functions if needed
 // export const getAllUsers = async () => {

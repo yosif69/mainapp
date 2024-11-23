@@ -4,12 +4,14 @@ const TestProvider = props => {
 
   //1
   const [cart, setCart] = useState([]);
+  const [user, setUser] = useState([]);
 
   //2
   const contextValue = {
     //3
     cart,
-    setCart
+    setCart,
+    user, setUser
   }
 
   return (

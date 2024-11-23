@@ -19,6 +19,8 @@ const Images = {
     // BackgrRK: () => require ('.BackgrRK.png'),
     // lxBackground: () => require ('./lxBackground.jpg'),
     rkBackground2: () => require ('./rkBackground2.jpg'),
+    loadingSc: () => require ('./loadingSc.png'),
+
 
 
 

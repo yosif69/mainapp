@@ -1,17 +1,46 @@
-import { SafeAreaView, View, ImageBackground, StyleSheet, Text, TextInput, Image, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import { SafeAreaView, View, ImageBackground, StyleSheet, Text, TextInput, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, { useContext, useState } from 'react';
 import Images from '../assets/images/images';
 import ScreenNames from '../../route/ScreenNames';
+import { CreateUserApi, registerApi } from '../res/api';
+import TestContext from '../../store/testContext';
 
 const CreateAccount = (props) => {
   const onSignUpPress = () => {
-    // عملية التحقق أو إرسال البيانات
     props.navigation.navigate(ScreenNames.PageHome);
   };
 
-  const [username, onChangeUsername] = useState('');
+  const { setUser } = useContext(TestContext);
+  const [text, onChangeText] = useState('');
   const [email, onChangeEmail] = useState('');
-  const [password, onChangePassword] = useState('');
+  const [password, onChangeNumber] = useState('');
+  const [loading, setloading] = useState(false);
+
+  const CreateUser = async () => {
+    setloading(true);
+    
+    const body = {
+      email: email,
+      userName: text,
+      pass: password
+    };
+
+    CreateUserApi(body)
+      .then((value) => {
+        if (value?.user) {
+          setUser(value.user);
+          props.navigation.navigate(ScreenNames.PageHome);
+        } else {
+          alert(value?.errorMessage);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setloading(false); // Corrected this to ensure the loading state is updated properly
+      });
+  };
 
   return (
     <ImageBackground source={Images.skull()} resizeMode="cover" style={styles.image}>
@@ -20,25 +49,25 @@ const CreateAccount = (props) => {
           <View style={styles.imageBox}>
             <Image style={styles.tinyLogo} source={Images.rkStyles()} />
           </View>
-              <TextInput
-                style={styles.input}
-                onChangeText={onChangeEmail}
-                value={email}
-                placeholder='Email'
-                placeholderTextColor={'#aaa'}
-                keyboardType='email-address'
-              />
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeEmail}
+            value={email}
+            placeholder='Email'
+            placeholderTextColor={'#aaa'}
+            keyboardType='email-address'
+          />
           <View style={styles.textBOX}>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeUsername}
-              value={username}
+              onChangeText={onChangeText}
+              value={text} // Fixed to match the declared state variable 'text'
               placeholder='Username'
               placeholderTextColor={'#aaa'}
             />
             <TextInput
               style={styles.input}
-              onChangeText={onChangePassword}
+              onChangeText={onChangeNumber}
               value={password}
               placeholder="Password"
               placeholderTextColor={'#aaa'}
@@ -46,8 +75,12 @@ const CreateAccount = (props) => {
             />
           </View>
           <View style={styles.boxLogin}>
-            <TouchableOpacity onPress={onSignUpPress} style={styles.Touch}>
-              <Text style={styles.TouchLogin}>Continue</Text>
+            <TouchableOpacity onPress={CreateUser} style={styles.Touch}>
+              {
+                loading ?
+                  <ActivityIndicator size='large' color='#333' /> : 
+                  <Text style={styles.TouchLogin}>Continue</Text>
+              }
             </TouchableOpacity>
           </View>
         </View>
